@@ -57,6 +57,7 @@
             this.lgbtButton = new System.Windows.Forms.Button();
             this.copySelectedButton = new System.Windows.Forms.Button();
             this.resetColorButton = new System.Windows.Forms.Button();
+            this.verLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -371,12 +372,23 @@
             this.resetColorButton.UseVisualStyleBackColor = true;
             this.resetColorButton.Click += new System.EventHandler(this.colorResetButton_Click);
             // 
+            // verLabel
+            // 
+            this.verLabel.AutoSize = true;
+            this.verLabel.ForeColor = System.Drawing.Color.White;
+            this.verLabel.Location = new System.Drawing.Point(15, 388);
+            this.verLabel.Name = "verLabel";
+            this.verLabel.Size = new System.Drawing.Size(31, 13);
+            this.verLabel.TabIndex = 10;
+            this.verLabel.Text = "0.0.3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(473, 450);
+            this.Controls.Add(this.verLabel);
             this.Controls.Add(this.copySelectedButton);
             this.Controls.Add(this.resetColorButton);
             this.Controls.Add(this.lgbtButton);
@@ -446,6 +458,7 @@
         private System.Windows.Forms.Button lgbtButton;
         private System.Windows.Forms.Button copySelectedButton;
         private System.Windows.Forms.Button resetColorButton;
+        private System.Windows.Forms.Label verLabel;
     }
 }
 
