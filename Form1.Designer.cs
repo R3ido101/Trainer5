@@ -374,6 +374,7 @@
             // 
             // verLabel
             // 
+            this.verLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.verLabel.AutoSize = true;
             this.verLabel.ForeColor = System.Drawing.Color.White;
             this.verLabel.Location = new System.Drawing.Point(15, 388);
