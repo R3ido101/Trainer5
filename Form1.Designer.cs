@@ -55,6 +55,7 @@
             this.hookGameButton = new System.Windows.Forms.Button();
             this.gameVerLabel = new System.Windows.Forms.Label();
             this.lgbtButton = new System.Windows.Forms.Button();
+            this.copySelectedButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -92,7 +93,7 @@
             // setMoneyButton
             // 
             this.setMoneyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.setMoneyButton.Location = new System.Drawing.Point(386, 70);
+            this.setMoneyButton.Location = new System.Drawing.Point(386, 71);
             this.setMoneyButton.Name = "setMoneyButton";
             this.setMoneyButton.Size = new System.Drawing.Size(75, 23);
             this.setMoneyButton.TabIndex = 3;
@@ -348,12 +349,23 @@
             this.lgbtButton.UseVisualStyleBackColor = true;
             this.lgbtButton.Click += new System.EventHandler(this.lgbtButton_Click);
             // 
+            // copySelectedButton
+            // 
+            this.copySelectedButton.Location = new System.Drawing.Point(306, 35);
+            this.copySelectedButton.Name = "copySelectedButton";
+            this.copySelectedButton.Size = new System.Drawing.Size(75, 23);
+            this.copySelectedButton.TabIndex = 9;
+            this.copySelectedButton.Text = "copy ID";
+            this.copySelectedButton.UseVisualStyleBackColor = true;
+            this.copySelectedButton.Click += new System.EventHandler(this.CopySelectedButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(473, 450);
+            this.Controls.Add(this.copySelectedButton);
             this.Controls.Add(this.lgbtButton);
             this.Controls.Add(this.gameVerLabel);
             this.Controls.Add(this.hookGameButton);
@@ -419,6 +431,7 @@
         private System.Windows.Forms.Button hookGameButton;
         private System.Windows.Forms.Label gameVerLabel;
         private System.Windows.Forms.Button lgbtButton;
+        private System.Windows.Forms.Button copySelectedButton;
     }
 }
 

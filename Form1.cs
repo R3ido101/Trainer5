@@ -47,8 +47,19 @@ namespace Trainer5
         //Write rainbow
         private void rainbows(object sender, EventArgs e)
         {
+            if(lgbtTowers.Count < 0)
+            {
+                return;
+            }
             foreach(int tower in lgbtTowers)
             {
+                int toRead = tower + 0x12C;
+                int isSold = memlib.readByte(toRead.ToString("X"));
+                if (isSold > 0)
+                {
+                    lgbtTowers.Remove(tower);
+                    break;
+                }
                 Random rand = new Random();
                 int towerRed = tower + 0x108;
                 int towerGreen = tower + 0x109;
@@ -246,7 +257,14 @@ namespace Trainer5
 
         private void lgbtButton_Click(object sender, EventArgs e)
         {
+            lgbtTowers.AddRange(getSelected());
+            Clipboard.SetText(lgbtTowers[0].ToString("X"));
+        }
+
+        public List<int> getSelected()
+        {
             List<long> scanResult = memlib.AoBScan("01 01 00 01 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ??", true, true).Result.ToList();
+            List<int> returnResult = new List<int>();
             foreach (long result in scanResult)
             {
                 try
@@ -255,9 +273,23 @@ namespace Trainer5
                     string hexS = baseV.ToString("X");
                     int hexI = int.Parse(hexS, System.Globalization.NumberStyles.HexNumber);
                     hexI -= 0xF0;
-                    lgbtTowers.Add(hexI);
+                    int soldCheck = hexI+0x12C;
+                    if(memlib.readByte(soldCheck.ToString("X")) < 1) {
+                        returnResult.Add(hexI);
+                    }
                 }
                 catch (OverflowException) { }
+            }
+            return returnResult;
+        }
+
+        private void CopySelectedButton_Click(object sender, EventArgs e)
+        {
+            int count = getSelected().Count;
+            MessageBox.Show(count + "");
+            if(count > 0)
+            {
+                Clipboard.SetText(getSelected().Last().ToString("X"));
             }
         }
     }
