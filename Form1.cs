@@ -251,12 +251,15 @@ namespace Trainer5
 
         private void lgbtButton_Click(object sender, EventArgs e)
         {
-            int selected = getSelectedTowers()[0];
-            if(!lgbtTowers.Contains(selected))
+            try
             {
-                lgbtTowers.Add(selected);
-            }
-            Clipboard.SetText(lgbtTowers[0].ToString("X"));
+                int selected = getSelectedTowers()[0];
+                if (!lgbtTowers.Contains(selected))
+                {
+                    lgbtTowers.Add(selected);
+                }
+                Clipboard.SetText(lgbtTowers[0].ToString("X"));
+            } catch (ArgumentOutOfRangeException) { }
         }
 
         public List<int> getSelectedTowers()
@@ -324,6 +327,12 @@ namespace Trainer5
                 memlib.writeMemory(towerGreen.ToString("X"), "byte", "0xFF");
                 memlib.writeMemory(towerBlue.ToString("X"), "byte", "0xFF");
             }
+        }
+
+        private void TeleportButton_Click(object sender, EventArgs e)
+        {
+            TeleportForm tpf = new TeleportForm(getSelectedTowers().Last(), memlib);
+            tpf.Show();
         }
     }
 }

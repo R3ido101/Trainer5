@@ -58,6 +58,7 @@
             this.copySelectedButton = new System.Windows.Forms.Button();
             this.resetColorButton = new System.Windows.Forms.Button();
             this.verLabel = new System.Windows.Forms.Label();
+            this.teleportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -383,12 +384,23 @@
             this.verLabel.TabIndex = 10;
             this.verLabel.Text = "0.0.3";
             // 
+            // teleportButton
+            // 
+            this.teleportButton.Location = new System.Drawing.Point(386, 311);
+            this.teleportButton.Name = "teleportButton";
+            this.teleportButton.Size = new System.Drawing.Size(75, 23);
+            this.teleportButton.TabIndex = 11;
+            this.teleportButton.Text = "TP Selected";
+            this.teleportButton.UseVisualStyleBackColor = true;
+            this.teleportButton.Click += new System.EventHandler(this.TeleportButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(473, 450);
+            this.Controls.Add(this.teleportButton);
             this.Controls.Add(this.verLabel);
             this.Controls.Add(this.copySelectedButton);
             this.Controls.Add(this.resetColorButton);
@@ -460,6 +472,7 @@
         private System.Windows.Forms.Button copySelectedButton;
         private System.Windows.Forms.Button resetColorButton;
         private System.Windows.Forms.Label verLabel;
+        private System.Windows.Forms.Button teleportButton;
     }
 }
 
