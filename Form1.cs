@@ -251,7 +251,11 @@ namespace Trainer5
 
         private void lgbtButton_Click(object sender, EventArgs e)
         {
-            lgbtTowers.AddRange(getSelectedTowers());
+            int selected = getSelectedTowers()[0];
+            if(!lgbtTowers.Contains(selected))
+            {
+                lgbtTowers.Add(selected);
+            }
             Clipboard.SetText(lgbtTowers[0].ToString("X"));
         }
 
