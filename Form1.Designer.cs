@@ -56,6 +56,7 @@
             this.gameVerLabel = new System.Windows.Forms.Label();
             this.lgbtButton = new System.Windows.Forms.Button();
             this.copySelectedButton = new System.Windows.Forms.Button();
+            this.resetColorButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -341,7 +342,7 @@
             // 
             // lgbtButton
             // 
-            this.lgbtButton.Location = new System.Drawing.Point(180, 35);
+            this.lgbtButton.Location = new System.Drawing.Point(27, 312);
             this.lgbtButton.Name = "lgbtButton";
             this.lgbtButton.Size = new System.Drawing.Size(119, 23);
             this.lgbtButton.TabIndex = 8;
@@ -351,13 +352,24 @@
             // 
             // copySelectedButton
             // 
-            this.copySelectedButton.Location = new System.Drawing.Point(306, 35);
+            this.copySelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.copySelectedButton.Location = new System.Drawing.Point(386, 8);
             this.copySelectedButton.Name = "copySelectedButton";
             this.copySelectedButton.Size = new System.Drawing.Size(75, 23);
             this.copySelectedButton.TabIndex = 9;
             this.copySelectedButton.Text = "copy ID";
             this.copySelectedButton.UseVisualStyleBackColor = true;
             this.copySelectedButton.Click += new System.EventHandler(this.CopySelectedButton_Click);
+            // 
+            // resetColorButton
+            // 
+            this.resetColorButton.Location = new System.Drawing.Point(159, 312);
+            this.resetColorButton.Name = "resetColorButton";
+            this.resetColorButton.Size = new System.Drawing.Size(210, 23);
+            this.resetColorButton.TabIndex = 8;
+            this.resetColorButton.Text = "Reset selected Tower\'s colors";
+            this.resetColorButton.UseVisualStyleBackColor = true;
+            this.resetColorButton.Click += new System.EventHandler(this.colorResetButton_Click);
             // 
             // Form1
             // 
@@ -366,6 +378,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(473, 450);
             this.Controls.Add(this.copySelectedButton);
+            this.Controls.Add(this.resetColorButton);
             this.Controls.Add(this.lgbtButton);
             this.Controls.Add(this.gameVerLabel);
             this.Controls.Add(this.hookGameButton);
@@ -432,6 +445,7 @@
         private System.Windows.Forms.Label gameVerLabel;
         private System.Windows.Forms.Button lgbtButton;
         private System.Windows.Forms.Button copySelectedButton;
+        private System.Windows.Forms.Button resetColorButton;
     }
 }
 

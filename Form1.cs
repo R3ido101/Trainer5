@@ -54,12 +54,6 @@ namespace Trainer5
             foreach(int tower in lgbtTowers)
             {
                 int toRead = tower + 0x12C;
-                int isSold = memlib.readByte(toRead.ToString("X"));
-                if (isSold > 0)
-                {
-                    lgbtTowers.Remove(tower);
-                    break;
-                }
                 Random rand = new Random();
                 int towerRed = tower + 0x108;
                 int towerGreen = tower + 0x109;
@@ -257,11 +251,11 @@ namespace Trainer5
 
         private void lgbtButton_Click(object sender, EventArgs e)
         {
-            lgbtTowers.AddRange(getSelected());
+            lgbtTowers.AddRange(getSelectedTowers());
             Clipboard.SetText(lgbtTowers[0].ToString("X"));
         }
 
-        public List<int> getSelected()
+        public List<int> getSelectedTowers()
         {
             List<long> scanResult = memlib.AoBScan("01 01 00 01 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ??", true, true).Result.ToList();
             List<int> returnResult = new List<int>();
@@ -282,14 +276,49 @@ namespace Trainer5
             }
             return returnResult;
         }
+        public List<int> getAllTowers()
+        {
+            List<long> scanResult = memlib.AoBScan("01 01 00 01 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ??", true, true).Result.ToList();
+            List<int> returnResult = new List<int>();
+            foreach (long result in scanResult)
+            {
+                try
+                {
+                    int baseV = (int)result & int.MaxValue;
+                    string hexS = baseV.ToString("X");
+                    int hexI = int.Parse(hexS, System.Globalization.NumberStyles.HexNumber);
+                    hexI -= 0xF0;
+                    int soldCheck = hexI + 0x12C;
+                    if (memlib.readByte(soldCheck.ToString("X")) < 1)
+                    {
+                        returnResult.Add(hexI);
+                    }
+                }
+                catch (OverflowException) { }
+            }
+            return returnResult;
+        }
 
         private void CopySelectedButton_Click(object sender, EventArgs e)
         {
-            int count = getSelected().Count;
-            MessageBox.Show(count + "");
+            int count = getSelectedTowers().Count;
             if(count > 0)
             {
-                Clipboard.SetText(getSelected().Last().ToString("X"));
+                Clipboard.SetText(getSelectedTowers().Last().ToString("X"));
+            }
+        }
+
+        private void colorResetButton_Click(object sender, EventArgs e)
+        {
+            foreach(int tower in getSelectedTowers())
+            {
+                lgbtTowers.Remove(tower);
+                int towerRed = tower + 0x108;
+                int towerGreen = tower + 0x109;
+                int towerBlue = tower + 0x10A;
+                memlib.writeMemory(towerRed.ToString("X"), "byte", "0xFF");
+                memlib.writeMemory(towerGreen.ToString("X"), "byte", "0xFF");
+                memlib.writeMemory(towerBlue.ToString("X"), "byte", "0xFF");
             }
         }
     }
