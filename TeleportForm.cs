@@ -38,5 +38,26 @@ namespace Trainer5
             fineYBox.Text = fineY.ToString();
             gridYBox.Text = gridY.ToString();
         }
+
+        private void TeleportButton_Click(object sender, EventArgs e)
+        {
+            int fineX = int.Parse(fineXBox.Text);
+            int gridX = int.Parse(gridXBox.Text);
+            int fineY = int.Parse(fineYBox.Text);
+            int gridY = int.Parse(gridYBox.Text);
+            int fineXByte = address + 0x92;
+            int gridXByte = address + 0x96;
+            int fineYByte = address + 0x93;
+            int gridYByte = address + 0x97;
+            if(fineX > 255 | gridX > 255 | fineY > 255 | gridY > 255)
+            {
+                MessageBox.Show("Maximum input value is 255!");
+                return;
+            }
+            memlib.writeMemory(fineXByte.ToString("X"), "byte", fineX.ToString("X"));
+            memlib.writeMemory(gridXByte.ToString("X"), "byte", gridX.ToString("X"));
+            memlib.writeMemory(fineYByte.ToString("X"), "byte", fineY.ToString("X"));
+            memlib.writeMemory(gridYByte.ToString("X"), "byte", gridY.ToString("X"));
+        }
     }
 }

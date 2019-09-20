@@ -66,6 +66,7 @@
     <Compile Include="TeleportForm.Designer.cs">
       <DependentUpon>TeleportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="towerScanner.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

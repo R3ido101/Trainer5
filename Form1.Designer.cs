@@ -59,6 +59,9 @@
             this.resetColorButton = new System.Windows.Forms.Button();
             this.verLabel = new System.Windows.Forms.Label();
             this.teleportButton = new System.Windows.Forms.Button();
+            this.fixSelsButton = new System.Windows.Forms.Button();
+            this.betterTextBox = new System.Windows.Forms.CheckBox();
+            this.lgbtHoverBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -394,12 +397,48 @@
             this.teleportButton.UseVisualStyleBackColor = true;
             this.teleportButton.Click += new System.EventHandler(this.TeleportButton_Click);
             // 
+            // fixSelsButton
+            // 
+            this.fixSelsButton.Location = new System.Drawing.Point(27, 341);
+            this.fixSelsButton.Name = "fixSelsButton";
+            this.fixSelsButton.Size = new System.Drawing.Size(119, 23);
+            this.fixSelsButton.TabIndex = 12;
+            this.fixSelsButton.Text = "Fix Selecions";
+            this.fixSelsButton.UseVisualStyleBackColor = true;
+            this.fixSelsButton.Click += new System.EventHandler(this.FixSelsButton_Click);
+            // 
+            // betterTextBox
+            // 
+            this.betterTextBox.AutoSize = true;
+            this.betterTextBox.ForeColor = System.Drawing.Color.White;
+            this.betterTextBox.Location = new System.Drawing.Point(180, 36);
+            this.betterTextBox.Name = "betterTextBox";
+            this.betterTextBox.Size = new System.Drawing.Size(78, 17);
+            this.betterTextBox.TabIndex = 13;
+            this.betterTextBox.Text = "Better Text";
+            this.betterTextBox.UseVisualStyleBackColor = true;
+            this.betterTextBox.CheckedChanged += new System.EventHandler(this.BetterTextBox_CheckedChanged);
+            // 
+            // lgbtHoverBox
+            // 
+            this.lgbtHoverBox.AutoSize = true;
+            this.lgbtHoverBox.ForeColor = System.Drawing.Color.White;
+            this.lgbtHoverBox.Location = new System.Drawing.Point(264, 35);
+            this.lgbtHoverBox.Name = "lgbtHoverBox";
+            this.lgbtHoverBox.Size = new System.Drawing.Size(91, 17);
+            this.lgbtHoverBox.TabIndex = 14;
+            this.lgbtHoverBox.Text = "Lgbt Hovered";
+            this.lgbtHoverBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(473, 450);
+            this.Controls.Add(this.lgbtHoverBox);
+            this.Controls.Add(this.betterTextBox);
+            this.Controls.Add(this.fixSelsButton);
             this.Controls.Add(this.teleportButton);
             this.Controls.Add(this.verLabel);
             this.Controls.Add(this.copySelectedButton);
@@ -473,6 +512,9 @@
         private System.Windows.Forms.Button resetColorButton;
         private System.Windows.Forms.Label verLabel;
         private System.Windows.Forms.Button teleportButton;
+        private System.Windows.Forms.Button fixSelsButton;
+        private System.Windows.Forms.CheckBox betterTextBox;
+        private System.Windows.Forms.CheckBox lgbtHoverBox;
     }
 }
 

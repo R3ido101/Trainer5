@@ -123,6 +123,7 @@
             this.teleportButton.TabIndex = 3;
             this.teleportButton.Text = "Teleport";
             this.teleportButton.UseVisualStyleBackColor = false;
+            this.teleportButton.Click += new System.EventHandler(this.TeleportButton_Click);
             // 
             // TeleportForm
             // 
@@ -143,6 +144,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "TeleportForm";
             this.Text = "TeleportForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.TeleportForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
